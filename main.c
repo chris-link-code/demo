@@ -1,4 +1,16 @@
 #include <stdio.h>
+#include <time.h>
+
+#include "md5.h"
+
+long long current_timestamp() {
+    struct timeval te;
+    gettimeofday(&te, NULL); // get current time
+    long long milliseconds = te.tv_sec * 1000LL + te.tv_usec / 1000; // calculate milliseconds
+    // printf("milliseconds: %lld\n", milliseconds);
+    return milliseconds;
+}
+
 
 int main() {
     printf("Hello, World!\n");
@@ -25,5 +37,52 @@ int main() {
     printf("Time :%s\n", __TIME__);
     printf("Line :%d\n", __LINE__);
     printf("ANSI :%d\n", __STDC__);
+
+    int a = 0;
+    for (int i = 0; i < 10; ++i) {
+        a += i;
+    }
+    printf("a is %d", a);
+
+
+    int arr[] = {10, 100, 200};
+    int const MAX = 5;
+    for (int i = 0; i < MAX; i++) {
+        printf("Value of arr[%d] = %d\n", i, arr[i]);
+    }
+    int *p_arr[MAX];
+    for (int i = 0; i < MAX; i++) {
+        p_arr[i] = &arr[i]; /* 赋值为整数的地址 */
+    }
+    for (int i = 0; i < MAX; i++) {
+        printf("Value of arr[%d] = %d, pointer is %d\n", i, *p_arr[i], p_arr[i]);
+    }
+
+    printf("\n================== MD5 Message-Digest Algorithm ==================\n\n");
+    printf("[INPUT] Enter the filepath: ");
+
+    printf("Time :%s\n", __TIME__);
+
+    // 输入文件路径
+    char filepath[256] = "C:\\File\\temporary\\s.rmvb";
+    //scanf("%s", filepath);
+
+    // 128位结果
+    uint8_t result[16];
+    int i;
+
+    // 返回值不等于1表示有错误
+    if (MD5(filepath, result) == 1) {
+        printf("\n[INFO] The result is: ");
+
+        //将字节通过无符号十六进制输出
+        for (i = 0; i < 16; i++) {
+            printf("%2.2x", result[i]);
+        }
+        printf("\n");
+    }
+
+    printf("Time :%s\n", __TIME__);
+    //system("pause");
     return 0;
 }
