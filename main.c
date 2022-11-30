@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <sys/time.h>
 
 #include "md5.h"
 
@@ -63,8 +64,10 @@ int main() {
 
     printf("Time :%s\n", __TIME__);
 
+    long start = current_timestamp();
+
     // 输入文件路径
-    char filepath[256] = "C:\\File\\temporary\\s.rmvb";
+    char filepath[256] = "/Users/chris/Movies/player.mkv";
     //scanf("%s", filepath);
 
     // 128位结果
@@ -83,6 +86,8 @@ int main() {
     }
 
     printf("Time :%s\n", __TIME__);
+    long end = current_timestamp();
+    printf("end %d", (end - start));
     //system("pause");
     return 0;
 }
