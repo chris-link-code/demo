@@ -67,7 +67,8 @@ int main() {
     long start = current_timestamp();
 
     // 输入文件路径
-    char filepath[256] = "/Users/chris/Movies/player.mkv";
+//    char filepath[256] = "/Users/chris/Movies/player.mkv";
+    char filepath[256] = "C:/File/temporary/s.rmvb";
     //scanf("%s", filepath);
 
     // 128位结果
