@@ -38,6 +38,7 @@ int main() {
     printf("Time :%s\n", __TIME__);
     printf("Line :%d\n", __LINE__);
     printf("ANSI :%d\n", __STDC__);
+    printf("STDC_VERSION :%d\n", __STDC_VERSION__);
 
     int a = 0;
     for (int i = 0; i < 10; ++i) {
@@ -68,7 +69,7 @@ int main() {
 
     // 输入文件路径
 //    char filepath[256] = "/Users/chris/Movies/player.mkv";
-    char filepath[256] = "C:/File/temporary/s.rmvb";
+    char filepath[256] = "C:/File/temporary/9200.mp4";
     //scanf("%s", filepath);
 
     // 128位结果
